@@ -1,0 +1,15 @@
+Special cases:
+1 - End in '?!' then consider it '.'
+2 - If starts with double quotes then followd by capital letter (ex: "Hello, use as start of sentence then end with closing double quotes
+3 - If citation/sentence in ( ) then treat as own sentence, preserve ( ) 
+4 - If ends with .' or ."(ex:'forever.'") preserve single/double quoations
+##########################################################################################
+Assumptions:
+1 - All first letters after . or .' or ? or ) is capital 
+2 - For plural words (ex. Prime's) I stripped out the ' apostrophes so the sorted result takes this into account (as it may affect sorted comparison),
+	if it was not meant to be taken care of, comment out line 16
+3 - If sentence in ( ), assume new sentence since this can mean a citation, or simply a new sentence in ( ) - aviod amiguity 
+########################################################################################## 
+Issue (doesn't affect final sort)
+With quoted multi-sentences ("Sen 1. Sen 2.") after pre-processing it becomes -> "Sen 1. | Sen 2.", regex messes up "\""
+##########################################################################################
